@@ -27,3 +27,24 @@ frontend/
 │   ├── component.js  // 🔥组件
 │   └── main.js       // 入口
 ~~~~
+
+## 颜色搭配
+BackgroundColor Mulled Wine
+
+HEX: #52496C
+RGB: rgb(82,73,108)
+BIAS: 55%
+Cameo
+
+
+FrontColor
+HEX: #D4B99C
+RGB: rgb(212,185,156)
+BIAS: 58%
+WCAG Ratio: AA Large (4.44:1)
+Polo Blue
+
+
+
+
+
