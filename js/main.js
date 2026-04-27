@@ -4,6 +4,7 @@ import { renderBlogs } from "./render.js";
 async function init() {
     const res = await fetchBlogs();
 
+    console.log(res)
     if (res.code === 200){
         renderBlogs(res.data.content);
     } else {

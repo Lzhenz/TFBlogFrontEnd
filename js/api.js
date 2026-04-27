@@ -1,4 +1,4 @@
-export function fetchBlogs() {
+export function fetchBlogs_old() {
     return Promise.resolve({
         code:200,
         message:"success",
@@ -24,4 +24,12 @@ export function fetchBlogs() {
             totalElements:2
         }
     });
+}
+
+export async function fetchBlogs(){
+    // 从后端进行调用
+    const res = await fetch("http://127.0.0.1:8080/api/blog");
+    const data = await res.json();
+
+    return data;
 }
