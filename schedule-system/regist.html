@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <style>
+        .ht{
+            text-align: center;
+        }
+
+        .registTable {
+            margin: 0 auto;
+        }
+
+    </style>
+    <script>
+        function checkUsername(){
+            // 正则表达式
+            var usernameReg = /^[a-zA-z0-9]{5,10}$/
+            // 获取用户输入的信息
+            var usernameInput = document.getElementById("usernameInput")
+            var username = usernameInput.value
+            var usernameMsg =  document.getElementById("usernameMsg")
+            // 格式有误，返回false，在页面上提示
+            if (!usernameReg.test(username)){
+                usernameMsg.innerText = "用户名格式有误"
+                return false
+            }
+            usernameMsg.innerText = "OK"
+            return true
+        }
+
+        function checkUserPwd(){
+            // 正则表达式
+            var userPwdReg = /^[0-9]{6,16}$/
+            // 获取用户输入的信息
+            var userPwdInput = document.getElementById("userPwdInput")
+            var userPwd = userPwdInput.value
+            var userPwdMsg =  document.getElementById("userPwdMsg")
+            // 格式有误，返回false，在页面上提示
+            if (!userPwdReg.test(userPwd)){
+                userPwdMsg.innerText = "密码格式有误"
+                return false
+            }
+            userPwdMsg.innerText = "OK"
+            return true
+        }
+
+        function checkUserPwd2(){
+            // 正则表达式
+            var userPwdReg = /^[0-9]{6,16}$/
+            // 获取用户输入的信息
+            var userPwd2Input = document.getElementById("userPwd2Input")
+            var userPwd2 = userPwd2Input.value
+            var userPwd2Msg =  document.getElementById("userPwd2Msg")
+
+            var userPwdInput = document.getElementById("userPwdInput")
+            var userPwd = userPwdInput.value
+            // 格式有误，返回false，在页面上提示
+            if (userPwd !== userPwd2){
+                userPwd2Msg.innerText = "两次输入密码不一致"
+                return false
+            }
+            userPwd2Msg.innerText = "OK"
+            return true
+        }
+
+        // 表单提交时校验用户名和密码
+        function checkForm(){
+            var flag1 = checkUsername()
+            var flag2 = checkUserPwd()
+            return flag1 && flag2
+        }
+    </script>
+</head>
+
+<body>
+    <h1 class="ht">欢迎来到注册页</h1>
+    <form method="post" action="/user/regist" onsubmit="checkForm()">
+        <table class="registTable" cellspacing="0px">
+            <tr class="registTr">
+                <td>请输入账户</td>
+                <td>
+                    <input class="registTdInput" type="text" id="usernameInput" name="username" onblur="checkUsername()">
+                    <span id="usernameMsg"></span>
+                </td>            
+            </tr>
+            <tr class="registTr">
+                <td>请输入密码</td>
+                <td>
+                    <input class="registTdInput" type="password" id="userPwdInput" name="userPwd" onblur="checkUserPwd()">
+                    <span id="userPwdMsg"></span>
+                </td>
+            </tr>
+            <tr class="registTr">
+                <td>请再次输入密码</td>
+                <td>
+                    <input class="registTdInput" type="password" id="userPwd2Input" name="userPwd2" onblur="checkUserPwd2()">
+                    <span id="userPwd2Msg"></span>
+                </td>
+            </tr>
+            <tr class="registTr">
+                <td class="btnRegist">
+                    <button>登陆</button>
+                </td>
+                <td class="btnBack">
+                    <button class="btnAction" type="button" onclick="location.href='/schedule-system/login.html'">返回</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
